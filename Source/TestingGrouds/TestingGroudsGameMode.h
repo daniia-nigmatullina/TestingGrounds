@@ -7,12 +7,12 @@
 #include "TestingGroudsGameMode.generated.h"
 
 UCLASS(minimalapi)
-class ATestingGroudsGameMode : public AGameModeBase
+class ATestingGroundsGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
-	ATestingGroudsGameMode();
+	ATestingGroundsGameMode();
 };
 
 
