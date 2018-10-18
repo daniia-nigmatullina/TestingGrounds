@@ -8,7 +8,7 @@
 
 class ABallProjectile;
 
-UCLASS()
+UCLASS(meta=(BlueprintSpawnableComponent), ClassGroup=(Custom))
 class TESTINGGROUDS_API AGun : public AActor
 {
 	GENERATED_BODY()
@@ -17,6 +17,7 @@ public:
 	// Sets default values for this actor's properties
 	AGun();
 
+	UFUNCTION(BlueprintCallable, Category = Gun)
 	void Fire();
 
 	/** Projectile class to spawn */

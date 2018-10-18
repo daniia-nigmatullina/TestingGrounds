@@ -41,7 +41,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	//FP_Gun->SetupAttachment(RootComponent);
 }
 
-void AFirstPersonCharacter::OnFire()
+void AFirstPersonCharacter::Fire()
 {
 	if (!ensure(Gun)) { return; }
 	Gun->Fire();
@@ -76,7 +76,7 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFirstPersonCharacter::OnFire);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFirstPersonCharacter::Fire);
 
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFirstPersonCharacter::MoveForward);

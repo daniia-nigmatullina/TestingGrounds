@@ -24,7 +24,9 @@ class AFirstPersonCharacter : public ACharacter
 
 public:
 	AFirstPersonCharacter();
-	void OnFire();
+
+	UFUNCTION(BlueprintCallable, Category=Firing)
+	void Fire();
 
 protected:
 	virtual void BeginPlay();
