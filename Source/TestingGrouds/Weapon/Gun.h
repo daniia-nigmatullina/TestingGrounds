@@ -29,10 +29,13 @@ public:
 	class USoundBase* FireSound;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	class UAnimMontage* FireAnimation;
+	class UAnimMontage* FirstPersonFireAnimation;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	UAnimInstance* AnimInstance;
+	class UAnimMontage* ThirdPersonFireAnimation;
+
+	class UAnimInstance* AnimInstance_1P;
+	class UAnimInstance* AnimInstance_3P;
 
 protected:
 	virtual void BeginPlay() override;

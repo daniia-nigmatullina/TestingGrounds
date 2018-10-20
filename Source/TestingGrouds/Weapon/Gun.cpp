@@ -5,7 +5,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Animation/AnimInstance.h"
 
-
 AGun::AGun()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -44,11 +43,14 @@ void AGun::Fire()
 		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 	}
 
-	if (FireAnimation != NULL)
+	if (FirstPersonFireAnimation && AnimInstance_1P)
 	{
-		if (AnimInstance != NULL)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
+		AnimInstance_1P->Montage_Play(FirstPersonFireAnimation, 1.f);
 	}
+
+	if (ThirdPersonFireAnimation && AnimInstance_3P)
+	{
+		AnimInstance_3P->Montage_Play(ThirdPersonFireAnimation, 1.f);
+	}
+
 }
