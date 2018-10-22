@@ -20,10 +20,11 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable, Category=Tile)
-	void PlaceActor(TSubclassOf<AActor> ToSpawn, int32 MinToSpawn, int32 MaxToSpawn);
+	void PlaceActors(TSubclassOf<AActor> ToSpawn, float Radius = 300, int32 MinSpawnNumber = 1, int32 MaxSpawnNumber = 1, float MinScale = 1, float MaxScale = 1);
 
 private:	
-	bool CastSphere(FVector Location, float Radius);
-	
+	bool CanSpawnAtLocation(FVector Location, float Radius);
+	void PlaceActor(TSubclassOf<AActor> ToSpawn, FVector Location, float RotationYaw = 0, float Scale = 1);
+	bool FindEmptyLocation(FVector &OutLocation, float Radius);
 	
 };
