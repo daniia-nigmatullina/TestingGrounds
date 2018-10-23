@@ -15,26 +15,17 @@ AActor * UActorPool::Checkout()
 		return nullptr;
 	}
 
-	auto PoppedActor = Pool.Pop();
-
-	UE_LOG(LogTemp, Warning, TEXT("Checkout to Tile from Pool: %s"), *(PoppedActor->GetName()));
-
-	return PoppedActor;
+	return  Pool.Pop();
 }
 
 void UActorPool::Return(AActor * ActorToReturn)
 {
-	if (!ActorToReturn) { return; }
-
-	UE_LOG(LogTemp, Warning, TEXT("Returned to Pool: %s"), *(ActorToReturn->GetName()));
-
+	if (ActorToReturn == nullptr) { return; }
 	this->Add(ActorToReturn);
 }
 
 void UActorPool::Add(AActor * ActorToAdd)
 {
 	if (!ActorToAdd) {return; }
-	UE_LOG(LogTemp, Warning, TEXT("Added to Pool: %s"), *(ActorToAdd->GetName()));
-	
 	Pool.Push(ActorToAdd);
 }
