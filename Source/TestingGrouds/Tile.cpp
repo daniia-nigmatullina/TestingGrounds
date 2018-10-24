@@ -26,6 +26,13 @@ void ATile::BeginPlay()
 void ATile::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
+
+	TArray<AActor*> AttachedProps;
+	GetAttachedActors(AttachedProps);
+	for (AActor* Prop : AttachedProps)
+	{
+		Prop->Destroy();
+	}
 	
 	if ((Pool != nullptr) && (NavMeshBoundsVolume != nullptr))
 	{
