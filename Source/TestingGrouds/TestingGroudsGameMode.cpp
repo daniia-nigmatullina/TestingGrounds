@@ -7,10 +7,10 @@
 ATestingGroundsGameMode::ATestingGroundsGameMode()
 {
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Character/BP_Character"));
+	/*static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Character/BP_Character"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
-	HUDClass = ATestingGroudsHUD::StaticClass();
+	HUDClass = ATestingGroudsHUD::StaticClass();*/
 }
